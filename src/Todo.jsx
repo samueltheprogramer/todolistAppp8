@@ -5,7 +5,7 @@ const style = {
   li: `flex justify-between bg-slate-200 p-4 my-2 capitalize`,
   liComplete: `flex justify-between bg-slate-400 p-4 my-2 capitalize`,
   row: `flex`,
-  text: `ml-2 cursor-pointer`,
+  text: `ml-2 cursor-pointer text-md font-bold w-30 `,
   textComplete: `ml-2 cursor-pointer line-through`,
   button: `cursor-pointer flex items-center`,
 };
@@ -18,7 +18,7 @@ export default function Todo({ todo, toggleComplete, deleteTodo }) {
           onChange={() => toggleComplete(todo)}
           type="checkbox"
           checked={todo.completed ? "checked" : ""}
-          className="mr-2"
+          className="mr-2 w-10"
         />
         <div className="mt-5 mb-5">
           <p

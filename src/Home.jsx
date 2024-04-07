@@ -51,6 +51,7 @@ function Home() {
 
     setInput("");
     setTaskImageName("");
+    setTaskImage();
   };
 
   // Read todo from firebase
