@@ -10,9 +10,9 @@ const style = {
   button: `cursor-pointer flex items-center`,
 };
 
-const Todo = ({ todo, toggleComplete, deleteTodo }) => {
+export default function Todo({ todo, toggleComplete, deleteTodo }) {
   return (
-    <li className={todo.completed ? style.liComplete : style.li}>
+    <li className={todo?.completed ? style.liComplete : style.li}>
       <div className={style.row}>
         <input
           onChange={() => toggleComplete(todo)}
@@ -20,7 +20,7 @@ const Todo = ({ todo, toggleComplete, deleteTodo }) => {
           checked={todo.completed ? "checked" : ""}
           className="mr-2"
         />
-        <div>
+        <div className="mt-5 mb-5">
           <p
             onClick={() => toggleComplete(todo)}
             className={todo.completed ? style.textComplete : style.text}
@@ -30,7 +30,7 @@ const Todo = ({ todo, toggleComplete, deleteTodo }) => {
           <p className="w-32"> deadline :{todo.deadline}</p>
         </div>
         <img
-          className="w-20 "
+          className="w-20 h-[100px] "
           src={`https://firebasestorage.googleapis.com/v0/b/todolistapp-559f6.appspot.com/o/images%2F${todo.taskImageName}?alt=media&token=641734d6-a03e-41e3-b71f-df881e112c61`}
           alt=""
         />
@@ -38,6 +38,4 @@ const Todo = ({ todo, toggleComplete, deleteTodo }) => {
       <button onClick={() => deleteTodo(todo.id)}>{<FaRegTrashAlt />}</button>
     </li>
   );
-};
-
-export default Todo;
+}
