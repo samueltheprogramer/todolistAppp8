@@ -50,6 +50,7 @@ function Home() {
     });
 
     setInput("");
+    setTaskImageName("");
   };
 
   // Read todo from firebase

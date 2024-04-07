@@ -31,7 +31,7 @@ export default function Todo({ todo, toggleComplete, deleteTodo }) {
         </div>
         <img
           className="w-20 h-[100px] "
-          src={`https://firebasestorage.googleapis.com/v0/b/todolistapp-559f6.appspot.com/o/images%2F${todo.taskImageName}?alt=media&token=641734d6-a03e-41e3-b71f-df881e112c61`}
+          src={`https://firebasestorage.googleapis.com/v0/b/todolistapp-559f6.appspot.com/o/images%2F${todo?.taskImageName}?alt=media&token=641734d6-a03e-41e3-b71f-df881e112c61`}
           alt=""
         />
       </div>
