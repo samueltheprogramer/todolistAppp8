@@ -13,6 +13,8 @@ import {
   where,
 } from "firebase/firestore";
 import { ref, uploadBytes } from "firebase/storage";
+import { signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const style = {
   bg: `h-screen w-screen p-4 bg-gradient-to-r from-[#2F80ED] to-[#1CB5E0]`,
@@ -30,6 +32,7 @@ function Home() {
   const [deadline, setDeadline] = useState("");
   const [taskImage, setTaskImage] = useState();
   const [taskImageName, setTaskImageName] = useState("");
+  const navigate = useNavigate();
 
   // Create todo
   const createTodo = async (e) => {
@@ -93,6 +96,12 @@ function Home() {
     imageName();
   };
 
+  const handleSignOut = async () => {
+    await signOut(auth);
+
+    navigate("/");
+  };
+
   return (
     <div className={style.bg}>
       <div className={style.container}>
@@ -107,7 +116,10 @@ function Home() {
               />
               <h2>{auth.currentUser.displayName}</h2>
             </div>
-            <button className="mt-4 text-sm  p-1   bg-blue-500 text-slate-100 rounded-full hover:bg-red-500 hover:border-2 hover:border-black">
+            <button
+              onClick={handleSignOut}
+              className="mt-4 text-sm  p-1   bg-blue-500 text-slate-100 rounded-full hover:bg-red-500 hover:border-2 hover:border-black"
+            >
               sign-out
             </button>
           </div>
